@@ -37,7 +37,7 @@ public class UtenteMacchinetta {
                             soldiUtente += scanner.nextDouble();
                             scanner.nextLine();
                             // se soldi sufficienti
-                            if (soldiUtente > prezziProd[i]) {
+                            if (soldiUtente >= prezziProd[i]) {
                                 quantitaProd[i] -= 1;
                                 resto = soldiUtente - prezziProd[i];
                                 bilancioMacchinetta += prezziProd[i];
