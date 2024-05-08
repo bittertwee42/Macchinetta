@@ -12,22 +12,31 @@ public class UtenteMacchinetta {
         String codiceInserito;
         boolean indiceProd = false;
         int i;
+        // inizio loop
         do {
+            // input selezione prodotto utente
             System.out.print("Selezionare codice prodotto (o C per uscire): ");
             codiceInserito = scanner.nextLine();
+            // per uscire
             if (codiceInserito.equalsIgnoreCase("c")) {
                 System.out.println("Arrivederci!");
                 break ;
             }
+            // cicla attraverso l'array di codice prodotto per vedere se c'è una corrispondenza
             for (i = 0; i < codiceProd.length; i++) {
+                // in caso positivo
                 if (codiceProd[i].equalsIgnoreCase(codiceInserito)) {
                     indiceProd = true;
+                    // controlla se c'è il prodotto
                     if (quantitaProd[i] >= 1) {
                         System.out.println("Il prezzo del prodotto è " + prezziProd[i] + "€.");
                         System.out.print("Inserire l'importo richiesto: ");
+                        // ciclo inserimento monete
                         do {
+                            // importo inserito dall'utente
                             soldiUtente += scanner.nextDouble();
                             scanner.nextLine();
+                            // se soldi sufficienti
                             if (soldiUtente > prezziProd[i]) {
                                 quantitaProd[i] -= 1;
                                 resto = soldiUtente - prezziProd[i];
@@ -35,15 +44,16 @@ public class UtenteMacchinetta {
                                 System.out.println("Resto: " + resto + "€.");
                                 resto = 0;
                                 soldiUtente = 0;
-                            } else {
+                            } else { // se soldi non sufficienti
                                 System.out.println("Importo insufficiente. Insirerire denaro.");
                             }
+                            // chiede di inserire più soldi fino ad arrivare all'importo necessario
                         } while (soldiUtente < prezziProd[i]);
-                    } else {
+                    } else { // in caso non ci sia la quantità disponibile
                         System.out.println("Quantità non disponibile.");
                     }
                 }
-            }
+            } // in caso negativo
             if (!indiceProd) {
                 System.out.println("Prodotto non trovato.");
             }
