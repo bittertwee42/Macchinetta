@@ -8,12 +8,17 @@ public class UtenteMacchinetta {
         double soldiUtente = 0, resto = 0, bilancioMacchinetta = 100;
         int[] quantitaProd = {3, 7, 10, 2, 5};
         String[] codiceProd = {"111", "222", "333", "444", "555"};
+        String[] nomeProd = {"Coca", "Fanta", "Caffezero", "Chinotto", "Limonata"};
         double[] prezziProd = {2, 2.5, 1.50, 3.50, 1};
         String codiceInserito;
         boolean indiceProd = false;
         int i;
         // inizio loop
         do {
+            for (i = 0; i < codiceProd.length; i++) {
+                System.out.print(nomeProd[i]);
+                System.out.print(codiceProd[i]);
+            }
             // input selezione prodotto utente
             System.out.print("Selezionare codice prodotto (o C per uscire): ");
             codiceInserito = scanner.nextLine();
@@ -44,8 +49,9 @@ public class UtenteMacchinetta {
                                 System.out.println("Resto: " + resto + "€.");
                                 resto = 0;
                                 soldiUtente = 0;
-                            } else { // se soldi non sufficienti
-                                System.out.println("Importo insufficiente. Insirerire denaro.");
+                            } else { 
+                                // se soldi non sufficienti
+                                System.out.println("Importo insufficiente. Insirerire denaro mancante: " + (prezziProd[i] - soldiUtente) + "€.";
                             }
                             // chiede di inserire più soldi fino ad arrivare all'importo necessario
                         } while (soldiUtente < prezziProd[i]);
