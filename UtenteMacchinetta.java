@@ -11,13 +11,13 @@ public class UtenteMacchinetta {
         String[] nomeProd = {"Coca", "Fanta", "Caffezero", "Chinotto", "Limonata"};
         double[] prezziProd = {2, 2.5, 1.50, 3.50, 1};
         String codiceInserito;
-        boolean indiceProd = false;
+        boolean indiceProd;
         int i;
         // inizio loop
         do {
             for (i = 0; i < codiceProd.length; i++) {
-                System.out.print(nomeProd[i]);
-                System.out.print(codiceProd[i]);
+                System.out.print(nomeProd[i] + " 555");
+                System.out.println(codiceProd[i]);
             }
             // input selezione prodotto utente
             System.out.print("Selezionare codice prodotto (o C per uscire): ");
@@ -27,6 +27,8 @@ public class UtenteMacchinetta {
                 System.out.println("Arrivederci!");
                 break ;
             }
+            // reset booleana
+            indiceProd = false;
             // cicla attraverso l'array di codice prodotto per vedere se c'è una corrispondenza
             for (i = 0; i < codiceProd.length; i++) {
                 // in caso positivo
@@ -51,7 +53,7 @@ public class UtenteMacchinetta {
                                 soldiUtente = 0;
                             } else { 
                                 // se soldi non sufficienti
-                                System.out.println("Importo insufficiente. Insirerire denaro mancante: " + (prezziProd[i] - soldiUtente) + "€.";
+                                System.out.println("Importo insufficiente. Insirerire denaro mancante: " + (prezziProd[i] - soldiUtente) + "€.");
                             }
                             // chiede di inserire più soldi fino ad arrivare all'importo necessario
                         } while (soldiUtente < prezziProd[i]);
